@@ -33,3 +33,27 @@ describe "binary to decimal" do
     expect(binary_to_decimal(binary_array)).must_equal expected_decimal
   end
 end
+
+
+describe "decimal to binary" do
+  it "From 153 to 10011001" do
+    decimal = 153
+    expected_binary_array = [1, 0, 0, 1, 1, 0, 0, 1]
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary_array
+  end
+
+  it "From 128 to 10000000" do
+    decimal = 128
+    expected_binary_array = [1, 0, 0, 0, 0, 0, 0, 0]
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary_array
+  end
+
+  it "From random decimal to binary" do
+    decimal = rand(0..100)
+    expected_binary_array = decimal.to_s(2).split('').map { |chr| chr.to_i }
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary_array
+  end
+end
